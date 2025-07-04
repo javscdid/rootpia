@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RooTopia Private Server</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: #0a0f0a;
+      --accent: #00ffcc;
+      --secondary-bg: #101e15;
+      --text: #e0ffe7;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text);
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(to bottom, #0a0f0a, #101e15);
+    }
+    header img { max-width: 120px; margin-bottom: 10px; animation: floatLogo 3s ease-in-out infinite; }
+    @keyframes floatLogo { 0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);} }
+    header h1 { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
+    header p { font-size: 1.1rem; margin-top: 10px; }
+
+    .menu-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #004f4f;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      z-index: 1001;
+      font-weight: bold;
+    }
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -270px;
+      height: 100%;
+      width: 260px;
+      background-color: #001c1a;
+      padding: 2rem 1rem;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+    .side-menu.open { left: 0; }
+    .side-menu .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+    .side-menu ul { list-style: none; padding: 0; }
+    .side-menu a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: white;
+      text-decoration: none;
+      margin: 0.3rem 0;
+      background-color: #00332f;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+    .side-menu a:hover { background-color: #00564d; }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .box {
+      background: var(--secondary-bg);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 15px rgba(0,255,204,0.2);
+    }
+    .copy-box {
+      background: #0f1f14;
+      border: 2px dashed #00ffcc;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: monospace;
+    }
+    .copy-box:hover { background: #152f20; }
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #4b6cb7, #182848);
+      color: white;
+      padding: 0.8rem 1.4rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .download-btn:hover { transform: scale(1.05); }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://example.com/bg-music.mp3" type="audio/mpeg">
+  </audio>
+  <button class="menu-button" onclick="toggleMenu()">MENU</button>
+  <nav class="side-menu" id="sideMenu">
+    <button class="close-btn" onclick="toggleMenu()">←</button>
+    <ul>
+      <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#how">📘 How To Play</a></li>
+      <li><a href="#community">👥 Community Group</a></li>
+      <li><a href="#shop">🛒 Shop</a></li>
+      <li><a href="#faq">❓ FAQ</a></li>
+      <li><a href="#privacy">🔐 Privacy Policy</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <img src="https://media.discordapp.net/attachments/1335465868221743165/1390652579221999656/20250703_180209.png?ex=686909a3&is=6867b823&hm=b17f13bf5091144250d0ac7c41749f349d76aa242797b6b4fe75cdbd6ae2de5d&=&format=webp&quality=lossless&width=770&height=770" alt="RooTopia Logo">
+    <h1>RooTopia Private Server</h1>
+    <p>Welcome to RooTopia Offical Website!</p>
+  </header>
+
+  <section id="how">
+    <div class="box">
+      <h2>Server Information</h2>
+      <p>Server was made by Calvyn & Zyx. <br>
+         2. Copy Hosts Windows.<br>
+         3. Jalankan Launcher.<br>
+         4. Enjoy RooTopia GTPS!</p>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="box">
+      <h2>Status Server</h2>
+      <p>⚡ Online</p>
+    </div>
+  </section>
+
+  <section id="vhost">
+    <div class="box">
+      <h2>Download VHOST</h2>
+      <a class="download-btn" href="https://www.mediafire.com/file/zjfafnqoyzk8f85/RooTopia1.txt/file" target="_blank">Download VHOST</a>
+    </div>
+    <div class="box">
+      <h2>Copy PTunnel</h2>
+      <div class="copy-box" onclick="copyToClipboard('https://gtpshost.com/RooTopia1.txt')">
+        https://gtpshost.com/RooTopia1.txt
+      </div>
+    </div>
+  </section>
+
+  <section id="hosts">
+    <div class="box">
+      <h2>Copy Windows Hosts</h2>
+      <div class="copy-box" onclick="copyToClipboard(`159.223.42.117 growtopia1.com
+159.223.42.117 growtopia2.com
+159.223.42.117 www.growtopia1.com
+159.223.42.117 www.growtopia2.com
+159.223.42.117 RvLnd.here`)">
+        159.223.42.117 growtopia1.com<br>
+        159.223.42.117 growtopia2.com<br>
+        159.223.42.117 www.growtopia1.com<br>
+        159.223.42.117 www.growtopia2.com<br>
+        159.223.42.117 RvLnd.here
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Teks berhasil dicopy!");
+      });
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll('section, header');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(s => observer.observe(s));
+    });
+  </script>
+</body>
+</html>
